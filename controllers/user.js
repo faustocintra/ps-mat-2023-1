@@ -34,9 +34,9 @@ controller.retrive = async (req, res) => {
     }
 }
 //------------esse é o retrive one pra pegar um só---------
-controller.retriveOne = async (req, res) => {
+controller.retrieveOne = async (req, res) => {
     try{
-        const data = await User.findByPk(req.param.id)
+        const data = await User.findByPk(req.params.id)
         //HTTP 200. OK (Implicito)
         if(data) res.send(data)
 
@@ -49,5 +49,47 @@ controller.retriveOne = async (req, res) => {
     }
 }
 //---------------------------------------------------FIM Retrive
+//-------------------esse é o update--------
+controller.update = async (req, res) =>{
+    try{
+        const response = await User.update (
+            req.body,
+            {where: { id: req.params.id}}
+            )
+        if(response [0] > 0 ){
+            res.status(204).end()
+        }
+        else{
+            // Não encontrou o registro para atualizar
+            //http 404: not found
+            res.status(404).end()
+        }
+    }
+    catch(error){
+        console.error(error)
+    }
+}
+//-------------------fim update
+//----------------DELETE
+controller.delete = async (req, res) =>{
+    try{
+        const response = await User.destroy(
+            {where: { id: req.params.id }}
+    )
+    if(response) {
+        //encontrou e excluiu
+        //http 204: no content
+        res.status(204).end() 
+    }
+    else{
+        //Não encontrou e não excluiu
+        //404: not found
+        res.status(404).end()
+    }
+    }
+    catch(error){
+        console.error(error)
+    }
+}
 
 module.exports = controller
