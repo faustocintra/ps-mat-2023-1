@@ -1,0 +1,23 @@
+1 - cne a migation para a tabela payment_methods (snake_case)
+--name PaymentMethod (PascalCase)
+*não precisa cololar o id no comando
+2 - Ajustar a migration:
+*name da tabela em snake_case, no up() e no down(): payment_methods
+*ajustar os tipos de dados , de acodo com o diagrama 
+3- Executar a migration: npx sequelize-cli db:migrate
+4- Copiar as definições  de campos  da migration (exeto  createdAt e updatedAt) e 
+colar (subistituir) a definição dos campos  no model.
+5- substitua todos os termos Sequelize por DataType (respeitando maiusculo/minusculo)
+6- remomear o arquivo do model para snake_case, se necessario
+8- Abaixo de modelName, acrescentar a tableName com o nome da tabela em snake_case
+9- Duplique um controller existente e o renomei de forma identica ao model que lhe será correspondente
+10 - No controller, renomeie o nome do model dentro dele (que esta em PascalCase), respeitando 
+maiusculo e minusculo
+11- Duplique em route existente e o renomeie em snake_case no pural 
+12- Renomeie o nome do controller no arquivo route
+13- no arquivo app.js, acrescente a rota, fazendo referencia ao arquivo route correspondente.
+14- Faça os testes no thunderClient
+
+git add . 
+git commit -m "(07/03) implementação de Cruds adicionais"
+git push
