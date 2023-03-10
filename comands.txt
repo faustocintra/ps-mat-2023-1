@@ -9,4 +9,3 @@ is_admin:boolean,phone:string,password:String
 npx sequelize-cli model:generate --name Channel --attributes id:integer,description:string,comission_feed :decimal
 
 npx sequelize-cli model:generate --name PaymentMethod --attributes description:string,operator_feed:decimal
-
