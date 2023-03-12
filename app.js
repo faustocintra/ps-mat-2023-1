@@ -43,4 +43,7 @@ app.use('/shipment_priorities', shipmentPriorities)
 const cities = require('./routes/cities')
 app.use('/cities', cities)
 
+const tags = require('./routes/tags')
+app.use('/tags', tags)
+
 module.exports = app;
